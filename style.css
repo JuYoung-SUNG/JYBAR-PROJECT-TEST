@@ -1,1 +1,29 @@
-/* Add styles here */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  font-family: sans-serif;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  text-align: center;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.card h1 {
+  color: #f1c40f; /* Yellow */
+}
+
+.card p {
+  color: #3498db; /* Blue */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
