@@ -1,14 +1,59 @@
 /**
  * Daily News Summary - Core Logic
- * Includes Mock Data, Web Components, Theme Toggle, and Modal Logic.
+ * Includes Mock Data, Web Components, Theme Toggle, Modal Logic, and i18n.
  */
+
+const TRANSLATIONS = {
+  en: {
+    title: 'The Daily Brief',
+    date: 'May 7, 2026',
+    heroTitle: "Yesterday's Top Headlines",
+    heroDesc: 'A concise summary of the events that shaped our world.',
+    categories: {
+      All: 'All Stories',
+      Politics: 'Politics',
+      Economy: 'Economy',
+      Sports: 'Sports',
+      Tech: 'Tech'
+    },
+    loading: 'Loading stories...',
+    readMore: 'Read Full Article',
+    yesterday: 'Yesterday',
+    langBtn: '🇰🇷 KO'
+  },
+  ko: {
+    title: '데일리 브리프',
+    date: '2026년 5월 7일',
+    heroTitle: '어제의 주요 헤드라인',
+    heroDesc: '세상을 바꾼 사건들의 간결한 요약입니다.',
+    categories: {
+      All: '전체 뉴스',
+      Politics: '정치',
+      Economy: '경제',
+      Sports: '스포츠',
+      Tech: '테크'
+    },
+    loading: '뉴스를 불러오는 중...',
+    readMore: '기사 전체 보기',
+    yesterday: '어제',
+    langBtn: '🇺🇸 EN'
+  }
+};
 
 const NEWS_DATA = [
   {
     id: 1,
     category: 'Politics',
-    title: 'New Policy Reform Announced for 2026',
-    summary: 'Government officials discussed a major overhaul of digital infrastructure policies to enhance connectivity across urban areas. This reform aims to provide high-speed internet to 95% of rural communities by 2028, fostering economic growth and digital literacy.',
+    translations: {
+      en: {
+        title: 'New Policy Reform Announced for 2026',
+        summary: 'Government officials discussed a major overhaul of digital infrastructure policies to enhance connectivity across urban areas. This reform aims to provide high-speed internet to 95% of rural communities by 2028, fostering economic growth and digital literacy.',
+      },
+      ko: {
+        title: '2026년 새로운 정책 개혁 발표',
+        summary: '정부 관계자들은 도시 지역의 연결성을 강화하기 위한 디지털 인프라 정책의 대대적인 개편을 논의했습니다. 이 개혁은 2028년까지 농어촌 커뮤니티의 95%에 초고속 인터넷을 제공하여 경제 성장과 디지털 리터러시를 촉진하는 것을 목표로 합니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=80',
     featured: true,
@@ -17,8 +62,16 @@ const NEWS_DATA = [
   {
     id: 2,
     category: 'Economy',
-    title: 'Market Hits Record High Amid Tech Surge',
-    summary: 'The stock market saw unprecedented growth yesterday as leading technology firms reported higher-than-expected quarterly earnings. Analysts attribute this surge to increased adoption of green energy solutions and AI-driven efficiency in manufacturing.',
+    translations: {
+      en: {
+        title: 'Market Hits Record High Amid Tech Surge',
+        summary: 'The stock market saw unprecedented growth yesterday as leading technology firms reported higher-than-expected quarterly earnings. Analysts attribute this surge to increased adoption of green energy solutions and AI-driven efficiency in manufacturing.',
+      },
+      ko: {
+        title: '기술주 급등 속 시장 사상 최고치 경신',
+        summary: '어제 주요 기술 기업들이 예상보다 높은 분기 실적을 발표하면서 주식 시장은 전례 없는 성장을 기록했습니다. 분석가들은 이러한 급등의 원인을 친환경 에너지 솔루션 채택 증가와 제조업의 AI 기반 효율성 향상 덕분으로 보고 있습니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1611974714851-4821016f5743?auto=format&fit=crop&w=800&q=80',
     featured: false,
@@ -27,8 +80,16 @@ const NEWS_DATA = [
   {
     id: 3,
     category: 'Sports',
-    title: 'Underdog Victory in National Finals',
-    summary: 'In a stunning upset, the city challengers defeated the reigning champions in a nail-biting finish during yesterday\'s finals. The match ended 3-2 after a dramatic overtime goal that left fans on the edge of their seats.',
+    translations: {
+      en: {
+        title: 'Underdog Victory in National Finals',
+        summary: 'In a stunning upset, the city challengers defeated the reigning champions in a nail-biting finish during yesterday\'s finals. The match ended 3-2 after a dramatic overtime goal that left fans on the edge of their seats.',
+      },
+      ko: {
+        title: '국가대표 결승전에서의 언더독 승리',
+        summary: '어제 열린 결승전에서 시티 챌린저스가 디펜딩 챔피언을 꺾는 이변을 일으켰습니다. 경기는 연장전에서 터진 극적인 결승골로 3-2로 끝났으며, 팬들은 손에 땀을 쥐며 경기를 지켜봤습니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=800&q=80',
     featured: false,
@@ -37,8 +98,16 @@ const NEWS_DATA = [
   {
     id: 4,
     category: 'Tech',
-    title: 'Breakthrough in Quantum Computing',
-    summary: 'Researchers have achieved a new milestone in quantum stability, bringing us closer to practical quantum processors. The team successfully maintained qubit coherence for over 10 minutes at room temperature, a feat previously thought impossible.',
+    translations: {
+      en: {
+        title: 'Breakthrough in Quantum Computing',
+        summary: 'Researchers have achieved a new milestone in quantum stability, bringing us closer to practical quantum processors. The team successfully maintained qubit coherence for over 10 minutes at room temperature, a feat previously thought impossible.',
+      },
+      ko: {
+        title: '양자 컴퓨팅의 획기적 발전',
+        summary: '연구진은 양자 안정성에서 새로운 이정표를 달성하여 실용적인 양자 프로세서에 한 걸음 더 다가섰습니다. 연구팀은 이전에는 불가능하다고 여겨졌던 상온에서의 큐비트 일관성을 10분 이상 유지하는 데 성공했습니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
     featured: true,
@@ -47,8 +116,16 @@ const NEWS_DATA = [
   {
     id: 5,
     category: 'Politics',
-    title: 'Global Summit Focuses on Climate Action',
-    summary: 'World leaders gathered yesterday to sign a landmark agreement aimed at accelerating carbon neutrality goals. The pact includes strict regulations on industrial emissions and a collective fund of $500 billion to support renewable energy in developing nations.',
+    translations: {
+      en: {
+        title: 'Global Summit Focuses on Climate Action',
+        summary: 'World leaders gathered yesterday to sign a landmark agreement aimed at accelerating carbon neutrality goals. The pact includes strict regulations on industrial emissions and a collective fund of $500 billion to support renewable energy in developing nations.',
+      },
+      ko: {
+        title: '글로벌 정상회의, 기후 행동에 집중',
+        summary: '어제 세계 각국 정상들이 모여 탄소 중립 목표 달성을 가속화하기 위한 획기적인 협정에 서명했습니다. 이 협정에는 산업 배출에 대한 엄격한 규제와 개발도상국의 재생 에너지를 지원하기 위한 5,000억 달러 규모의 공동 기금 마련이 포함되어 있습니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?auto=format&fit=crop&w=800&q=80',
     featured: false,
@@ -57,14 +134,62 @@ const NEWS_DATA = [
   {
     id: 6,
     category: 'Sports',
-    title: 'World-Class Sprinter Sets New Record',
-    summary: 'The track and field community was buzzing yesterday as a new world record was set in the 100m sprint. The 22-year-old athlete clocked in at 9.48 seconds, shattering the previous record by a significant margin.',
+    translations: {
+      en: {
+        title: 'World-Class Sprinter Sets New Record',
+        summary: 'The track and field community was buzzing yesterday as a new world record was set in the 100m sprint. The 22-year-old athlete clocked in at 9.48 seconds, shattering the previous record by a significant margin.',
+      },
+      ko: {
+        title: '세계 정상급 스프린터, 신기록 수립',
+        summary: '어제 100m 달리기에서 새로운 세계 기록이 수립되면서 육상계가 들썩였습니다. 22세의 이 선수는 9.48초를 기록하며 이전 기록을 큰 차이로 경신했습니다.',
+      }
+    },
     date: 'Yesterday',
     image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80',
     featured: false,
     url: '#'
   }
 ];
+
+// --- State Management ---
+let currentLang = localStorage.getItem('lang') || 'en';
+
+// --- i18n Management ---
+function updatei18n() {
+  const t = TRANSLATIONS[currentLang];
+  
+  // Header
+  document.querySelector('.logo h1').textContent = t.title;
+  document.querySelector('.date-badge').textContent = t.date;
+  document.getElementById('langToggle').textContent = t.langBtn;
+  
+  // Navigation
+  const navBtns = document.querySelectorAll('.filter-nav .filter-btn[data-category]');
+  navBtns.forEach(btn => {
+    const cat = btn.getAttribute('data-category');
+    btn.textContent = t.categories[cat];
+  });
+  
+  // Hero
+  document.querySelector('.hero-section h2').textContent = t.heroTitle;
+  document.querySelector('.hero-section p').textContent = t.heroDesc;
+  
+  // Modal
+  document.getElementById('modalLink').textContent = t.readMore;
+
+  // Refresh Grid
+  const grid = document.querySelector('news-grid');
+  if (grid) grid.render(document.querySelector('.filter-btn.active').getAttribute('data-category'));
+}
+
+function initLang() {
+  const toggle = document.getElementById('langToggle');
+  toggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ko' : 'en';
+    localStorage.setItem('lang', currentLang);
+    updatei18n();
+  });
+}
 
 // --- Theme Management ---
 function initTheme() {
@@ -94,10 +219,11 @@ const modal = {
   close: document.getElementById('closeModal'),
 
   open(data) {
-    this.title.textContent = data.title;
+    const t = data.translations[currentLang];
+    this.title.textContent = t.title;
     this.image.src = data.image;
-    this.category.textContent = data.category;
-    this.summary.textContent = data.summary;
+    this.category.textContent = TRANSLATIONS[currentLang].categories[data.category];
+    this.summary.textContent = t.summary;
     this.link.href = data.url;
     this.el.showModal();
   },
@@ -120,6 +246,10 @@ class NewsCard extends HTMLElement {
   set article(data) {
     this._data = data;
     const isFeatured = data.featured ? 'featured' : '';
+    const t = data.translations[currentLang];
+    const catLabel = TRANSLATIONS[currentLang].categories[data.category];
+    const dateLabel = TRANSLATIONS[currentLang].yesterday;
+
     this.shadowRoot.innerHTML = `
       <style>
         :host {
@@ -203,13 +333,13 @@ class NewsCard extends HTMLElement {
       </style>
       <div class="card ${isFeatured}">
         <div class="image-container">
-          <img src="${data.image}" alt="${data.title}">
+          <img src="${data.image}" alt="${t.title}">
         </div>
         <div class="content">
-          <div class="category">${data.category}</div>
-          <h3>${data.title}</h3>
-          <p>${data.summary}</p>
-          <div class="date">${data.date}</div>
+          <div class="category">${catLabel}</div>
+          <h3>${t.title}</h3>
+          <p>${t.summary}</p>
+          <div class="date">${dateLabel}</div>
         </div>
       </div>
     `;
@@ -272,7 +402,7 @@ class NewsGrid extends HTMLElement {
   }
 
   async render(filterCategory = 'All') {
-    this.container.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Loading stories...</p>';
+    this.container.innerHTML = `<p style="text-align:center; grid-column: 1/-1;">${TRANSLATIONS[currentLang].loading}</p>`;
     const data = await this.fetchNews();
     
     this.container.innerHTML = '';
@@ -292,15 +422,16 @@ customElements.define('news-grid', NewsGrid);
 // --- App Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initLang();
   modal.init();
+  updatei18n(); // Initial i18n setup
   
   const grid = document.querySelector('news-grid');
-  const buttons = document.querySelectorAll('.filter-btn');
+  const buttons = document.querySelectorAll('.filter-nav .filter-btn[data-category]');
 
   // Handle Filtering
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      if (btn.id === 'themeToggle') return;
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const category = btn.getAttribute('data-category');
