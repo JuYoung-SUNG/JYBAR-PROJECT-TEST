@@ -22,6 +22,7 @@
         <button class="filter-btn" data-category="Economy">Economy</button>
         <button class="filter-btn" data-category="Sports">Sports</button>
         <button class="filter-btn" data-category="Tech">Tech</button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌓</button>
       </nav>
     </div>
   </header>
@@ -34,6 +35,22 @@
     
     <news-grid></news-grid>
   </main>
+
+  <!-- News Detail Modal -->
+  <dialog id="newsModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-header">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="modal-body">
+        <div class="modal-category" id="modalCategory"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="modal-text" id="modalSummary"></div>
+        <a href="#" class="filter-btn active" id="modalLink" target="_blank">Read Full Article</a>
+      </div>
+    </div>
+  </dialog>
 
   <footer>
     <p>&copy; 2026 The Daily Brief. All rights reserved.</p>

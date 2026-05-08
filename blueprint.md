@@ -12,13 +12,17 @@ A modern, single-page web application that provides a curated summary of yesterd
 ## Project Features
 - **Categorized News**: Sections for Politics, Economy, Sports, and Technology.
 - **Modern Grid Layout**: Responsive newspaper-style layout using CSS Grid and Container Queries.
-- **Glassmorphism UI**: A sleek, translucent header with filter controls.
-- **Interactive Components**: Custom Web Components with "lifted" card effects and hover transitions.
+- **Glassmorphism UI**: A sleek, translucent header with filter controls and a **Dark Mode toggle**.
+- **Interactive Components**: Custom Web Components with "lifted" card effects and **Detailed View Modals**.
 - **Dynamic Filtering**: Instantly switch between categories without page reloads.
+- **Theme Support**: Full Dark/Light mode support using CSS variables.
 
 ## Implementation Steps (Current)
-1.  **Preparation**: Update project documentation (Blueprint).
-2.  **Logic & Components (main.js)**: Implement `NEWS_DATA` and Web Components.
-3.  **Structure (index.html)**: Refactor main HTML structure.
-4.  **Styling (style.css)**: Apply premium modern CSS styles.
-5.  **Deployment**: Commit changes and deploy to Firebase.
+1.  **Preparation**: Update project documentation (Blueprint). [DONE]
+2.  **Theme Implementation (style.css)**: Define dark mode variables and theme transition logic.
+3.  **UI Enhancements (index.html)**: Add theme toggle button and modal container.
+4.  **Component & Logic Upgrade (main.js)**: 
+    - Implement theme switching logic.
+    - Create a `Modal` component/logic for detailed news view.
+    - Refactor news loading to use an `async` fetch pattern (preparing for real API).
+5.  **Validation & Deployment**: Test all interactions and deploy.
