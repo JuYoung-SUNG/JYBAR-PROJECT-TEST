@@ -3,14 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Daily News Summary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <div class="card">
-    <h1>Hello, world!</h1>
-    <p>This is an interactive card.</p>
-  </div>
+  <header class="glass-header">
+    <div class="header-content">
+      <div class="logo">
+        <h1>The Daily Brief</h1>
+        <span class="date-badge">May 7, 2026</span>
+      </div>
+      <nav class="filter-nav">
+        <button class="filter-btn active" data-category="All">All Stories</button>
+        <button class="filter-btn" data-category="Politics">Politics</button>
+        <button class="filter-btn" data-category="Economy">Economy</button>
+        <button class="filter-btn" data-category="Sports">Sports</button>
+        <button class="filter-btn" data-category="Tech">Tech</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <h2>Yesterday's Top Headlines</h2>
+      <p>A concise summary of the events that shaped our world.</p>
+    </section>
+    
+    <news-grid></news-grid>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 The Daily Brief. All rights reserved.</p>
+  </footer>
+
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
