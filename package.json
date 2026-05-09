@@ -1,0 +1,14 @@
+{
+  "name": "daily-news-summary",
+  "version": "1.0.0",
+  "description": "Daily news summary site with automated data collection",
+  "main": "main.js",
+  "scripts": {
+    "fetch-news": "node scripts/fetch-news.js",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  }
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1778294024559,
+    "category": "Economy",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 1 (Economy)",
+        "summary": "This is an automatically generated news summary for Economy. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 1 (Economy)",
+        "summary": "이것은 Economy 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000001?auto=format&fit=crop&w=800&q=80",
+    "featured": true,
+    "url": "#"
+  },
+  {
+    "id": 1778294024580,
+    "category": "Tech",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 2 (Tech)",
+        "summary": "This is an automatically generated news summary for Tech. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 2 (Tech)",
+        "summary": "이것은 Tech 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000002?auto=format&fit=crop&w=800&q=80",
+    "featured": false,
+    "url": "#"
+  },
+  {
+    "id": 1778294024581,
+    "category": "Politics",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 3 (Politics)",
+        "summary": "This is an automatically generated news summary for Politics. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 3 (Politics)",
+        "summary": "이것은 Politics 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000003?auto=format&fit=crop&w=800&q=80",
+    "featured": false,
+    "url": "#"
+  },
+  {
+    "id": 1778294024582,
+    "category": "Tech",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 4 (Tech)",
+        "summary": "This is an automatically generated news summary for Tech. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 4 (Tech)",
+        "summary": "이것은 Tech 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000004?auto=format&fit=crop&w=800&q=80",
+    "featured": false,
+    "url": "#"
+  },
+  {
+    "id": 1778294024583,
+    "category": "Tech",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 5 (Tech)",
+        "summary": "This is an automatically generated news summary for Tech. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 5 (Tech)",
+        "summary": "이것은 Tech 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000005?auto=format&fit=crop&w=800&q=80",
+    "featured": false,
+    "url": "#"
+  },
+  {
+    "id": 1778294024584,
+    "category": "Economy",
+    "translations": {
+      "en": {
+        "title": "Automated News Item 6 (Economy)",
+        "summary": "This is an automatically generated news summary for Economy. It was collected at 2:33:44 AM."
+      },
+      "ko": {
+        "title": "자동 생성 뉴스 6 (Economy)",
+        "summary": "이것은 Economy 분야의 자동 생성 뉴스 요약입니다. 수집 시간: 2:33:44 AM."
+      }
+    },
+    "date": "Today",
+    "image": "https://images.unsplash.com/photo-1500000000006?auto=format&fit=crop&w=800&q=80",
+    "featured": false,
+    "url": "#"
+  }
+]
